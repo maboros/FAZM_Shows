@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using FAZM_Shows.Models;
 
 namespace FAZM_Shows
 {
@@ -33,6 +35,9 @@ namespace FAZM_Shows
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<FAZM_ShowsContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("FAZM_ShowsContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Pretraži";
+}
+<h2>@ViewData["Title"]</h2>
+
+<h3>Pretražite po sekcijama</h3><br>
+
+<div style="position:center">
+    <form asp-action="Found" asp-controller="Shows" method="post">
+        <select name="section">
+            <option value="A">A grupa</option>
+            <option value="Veterani">Veterani</option>
+            <option value="Orkestar">Orkestar</option>
+            <option value="Srčeka">Srčeka</option>
+        </select>
+        <input type="submit" value="Pretraži" class="btn btn-primary" />
+    </form>
+</div>
+<br>
