@@ -1,11 +1,13 @@
 ﻿@model IEnumerable<FAZM_Shows.Models.Show.Show>
-
 @{
-    ViewData["Title"] = "Nastupi";
+    ViewData["Title"] = "AdminIndex";
 }
 
-<h2>Nastupi</h2>
+<h2>Administracijski pogled</h2>
 
+<p>
+    <a asp-action="Create">Dodaj nastup</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -28,7 +30,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.section)
@@ -46,9 +49,11 @@
                 @Html.DisplayFor(modelItem => item.date)
             </td>
             <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Promijeni</a> |
                 <a asp-action="Details" asp-route-id="@item.id">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Obriši</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>

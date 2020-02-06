@@ -22,7 +22,7 @@ namespace FAZM_Shows.Controllers
         // GET: Shows
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Show.ToListAsync());
+            return View(await _context.Show.OrderBy(g=>g.section).Select(g => g).ToListAsync());
         }
         // GET: Shows/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -46,6 +46,21 @@ namespace FAZM_Shows.Controllers
         public IActionResult Search()
         {
             return View();
+        }
+        public IActionResult Admin()
+        {
+            return View();
+        }
+        public IActionResult AdminIndex(string password)
+        {
+            var shows = _context.Show.OrderBy(g=>g.section).Select(g=>g);
+            if (password == "admin")
+            {
+                
+                return View(shows);
+            }
+            HomeController homeController = new HomeController();
+            return View("~/Views/Home/Index.cshtml");
         }
         public IActionResult Found(string section)
         {

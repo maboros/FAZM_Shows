@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Administracija";
+}
+
+<h2>Administracija</h2>
+
+<h3>Prijava</h3><br>
+
+<div style="position:center">
+    <form asp-action="AdminIndex" asp-controller="Shows" method="post">
+        <input type="password" name="password" />
+        <input type="submit" value="Prijavi se" class="btn btn-primary" />
+    </form>
+</div>
+<br>
